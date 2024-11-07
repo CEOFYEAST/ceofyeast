@@ -5,12 +5,12 @@ server {
         server_name ceofyeast.com www.ceofyeast.com;
 
         # The only request that shouldn't be proxied is a direct request to the root
-        # The order matters here; if the request is /, then it will just use whatver location block comes first to my understanding
+        # The order matters here; if the request is /, then it will just use whatver location blo>
         location / {
 
                 index index.html index.htm index.nginx-debian.html;
 
-                root /home/ubuntu/ceofyeast.com/client/dist;
+                root /home/ubuntu/ceofyeast/client/dist;
 
                 try_files $uri $uri/ @proxy;
         }
@@ -18,7 +18,7 @@ server {
         # every other request should be proxied
         location @proxy {
 
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  # Forward client's IP
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  # Forward client's >
 
                 proxy_set_header Host $host;  # Forward the Host header
 
